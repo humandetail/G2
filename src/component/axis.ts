@@ -346,6 +346,7 @@ const ArcAxisComponent: GCC<AxisOptions> = (options) => {
     title,
     grid: showGrid = false,
     important = {},
+    style,
     ...rest
   } = options;
   return ([scale], value, coordinate, theme) => {
@@ -379,6 +380,7 @@ const ArcAxisComponent: GCC<AxisOptions> = (options) => {
         data: ticks,
         title: titleContent(title),
         showGrid,
+        ...style,
         ...rest,
         ...important,
       }),
@@ -456,6 +458,7 @@ const LinearAxisComponent: GCC<AxisOptions> = (options) => {
     tickMethod,
     title,
     transform,
+    style,
     ...userDefinitions
   } = options;
 
@@ -502,6 +505,7 @@ const LinearAxisComponent: GCC<AxisOptions> = (options) => {
     );
     const axisStyle = {
       ...defaultStyle,
+      ...style,
       type: 'linear' as const,
       data: ticks,
       title: titleContent(title),
